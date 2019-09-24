@@ -1,4 +1,6 @@
-﻿@{
+﻿
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -7,7 +9,7 @@
         <div>@ViewBag.Start</div>
         <div>Ended</div>
         <div>@ViewBag.End</div>
-        <div class="btn-outline-primary" asp-action="Start">Start</div>
-        <div class="btn-outline-primary" asp-action="End">End</div>
+        <div class="btn-outline-primary"><a asp-controller="Home" asp-action="Start">Start</a></div>
+        <div class="btn-outline-primary"><a asp-controller="Home" asp-action="End">End</a></div>
     </div>
 
