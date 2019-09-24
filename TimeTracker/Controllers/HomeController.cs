@@ -23,6 +23,20 @@ namespace TimeTracker.Controllers
             return View();
         }
 
+        public IActionResult Start()
+        {
+            ViewBag.Start = true;
+            ViewBag.End = false;
+            return View("Index");
+        }
+
+        public IActionResult End()
+        {
+            ViewBag.Start = false;
+            ViewBag.End = true;
+            return View("Index");
+        }
+
         public IActionResult Privacy()
         {
             return View();
