@@ -13,6 +13,8 @@ namespace TimeTracker.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        public dynamic ViewBag { get; }
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -21,6 +23,20 @@ namespace TimeTracker.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult Start()
+        {
+            ViewBag.Start = true;
+            ViewBag.End = false;
+            return View("Index");
+        }
+
+        public IActionResult End()
+        {
+            ViewBag.Start = false;
+            ViewBag.End = true;
+            return View("Index");
         }
 
         public IActionResult Privacy()
