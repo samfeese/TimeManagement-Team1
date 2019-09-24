@@ -24,7 +24,6 @@ namespace TimeTracker
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddMvc();
             //services.AddDbContext<ApplicationDbContext>(options =>
             //                      options.UseSqlServer(Configuration["AllData:UserData:ConnectionString"]));
         }
@@ -44,7 +43,6 @@ namespace TimeTracker
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseMvc();
             
 
             app.UseRouting();
