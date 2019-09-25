@@ -20,9 +20,9 @@ namespace TimeTracker.Controllers
 
         static Stopwatch stopwatch = new Stopwatch();
 
-        DateTime startTime;
+        static DateTime startTime;
 
-        DateTime endTime;
+        static DateTime endTime;
 
         static string stopwatchString;
 
@@ -41,6 +41,7 @@ namespace TimeTracker.Controllers
         {
             return View();
         }
+
 
         public IActionResult Start()
         {
