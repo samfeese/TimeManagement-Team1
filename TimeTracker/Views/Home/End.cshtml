@@ -1,0 +1,18 @@
+﻿
+
+@{
+    ViewData["Title"] = "End";
+}
+
+<div class="container">
+    <div>Started</div>
+    <div>@ViewBag.StartTime</div>
+    <div>Ended</div>
+    <div>@ViewBag.EndTime</div>
+    <br />
+    <div>Current Total: @ViewBag.Current</div>
+    <div>Total: @ViewBag.Total</div>
+    <div class="btn-outline-primary"><a asp-controller="Home" asp-action="Start">Start</a></div>
+    <div class="btn-outline-primary"><a asp-controller="Home" asp-action="End">End</a></div>
+</div>
+
