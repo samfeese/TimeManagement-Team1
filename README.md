@@ -25,6 +25,3 @@ Time Manager is a unique way to track your time. We are using a ASP.NET MVC CORE
 1. (Display Start Button)
 2. (Display Stop Button)
 3. (Display what the database looks like)
-
-				# TimeManagement-Team1
-Time Management Program, MSSA FB Cohort 7- Team 1
