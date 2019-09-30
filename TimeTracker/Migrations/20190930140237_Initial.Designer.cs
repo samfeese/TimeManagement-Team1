@@ -10,8 +10,8 @@ using TimeTracker.Models;
 namespace TimeTracker.Migrations
 {
     [DbContext(typeof(TimeTrackerDbContext))]
-    [Migration("20190925143454_IdentityServices")]
-    partial class IdentityServices
+    [Migration("20190930140237_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
