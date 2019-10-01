@@ -56,6 +56,9 @@ namespace TimeTracker.Controllers
 
         public IActionResult End()
         {
+            var user = User.Identity.Name;
+            var permission = User.IsInRole("admin");
+            
             if (started || ended == false && started == false)
             {
                 stopwatch.Stop();
