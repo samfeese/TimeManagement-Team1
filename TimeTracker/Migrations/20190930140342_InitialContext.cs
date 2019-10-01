@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TimeTracker.Migrations
 {
-    public partial class IdentityServices : Migration
+    public partial class InitialContext : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
