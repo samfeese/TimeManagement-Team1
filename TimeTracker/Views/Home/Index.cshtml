@@ -4,17 +4,28 @@
     ViewData["Title"] = "Home Page";
 }
 
-    <div class="container">
-        <partial name="_LoginPartial" />
-        <br />
-        <div>Started</div>
-        <div>@ViewBag.Start</div>
-        <div class="btn-outline-primary"><a asp-controller="Home" asp-action="Start">Start</a></div>
-        <div>Ended</div>
-        <div>@ViewBag.End</div>
-        <br />
-        <div>Current Total: @ViewBag.Current</div>
-        <div>Total: @ViewBag.Total</div>
-        <div class="btn-outline-primary"><a asp-controller="Home" asp-action="End">End</a></div>
-    </div>
+    <div class="" >
+        
+        
+        <section class="text-center border-dark border">
+            <div>Started</div>
+       
+            <div>@(ViewBag.Start ?? "00:00.00")</div>
+       
+            <div>Ended</div>
+       
+            <div>@(ViewBag.End ?? "00:00.00")</div>
+            
+            <div>Current Total: @ViewBag.Current</div>
+            
+            <div>Total: @ViewBag.Total</div>
+        </section>
+       
+        
+        
+        <div class="m-3 text-center">
+            <a class="btn-lg btn-primary" asp-controller="Home" asp-action="Start">Start</a>
+            
+            <a class="btn-lg btn-danger" asp-controller="Home" asp-action="End">End</a></div>
+        </div>
 

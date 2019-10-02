@@ -18,7 +18,7 @@ namespace TimeTracker.Controllers
 
         bool ended = false;
 
-        static Stopwatch stopwatch = new Stopwatch();
+        public Stopwatch stopwatch;
 
         static DateTime startTime;
 
@@ -45,6 +45,7 @@ namespace TimeTracker.Controllers
 
         public IActionResult Start()
         {
+            stopwatch = new Stopwatch();
             stopwatch.Start();
             startTime = DateTime.Now;
             ViewBag.Start = true;
@@ -62,15 +63,19 @@ namespace TimeTracker.Controllers
             if (started || ended == false && started == false)
             {
                 stopwatch.Stop();
+
                 endTime = DateTime.Now;
                 ViewBag.StartTime = startTime;
                 ViewBag.EndTime = endTime;
+                var totalTime = stopwatch.Elapsed;
                 stopwatchString = stopwatch.Elapsed.ToString();
                 stopwatchList = stopwatchString.Split(":");
                 var trimIndex = stopwatchList[2].IndexOf(".");
                 var hours = Convert.ToInt32(stopwatchList[1]);
                 var minutes = Convert.ToInt32(stopwatchList[2].Remove(trimIndex - 1, stopwatchList[2].Length - 1));
-                if(hours > 0)
+
+
+                if (hours > 0)
                 {
                     currentTotal = Convert.ToInt32(hours) * 60 + Convert.ToInt32(minutes);
                 }
