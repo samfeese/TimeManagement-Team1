@@ -1,0 +1,35 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "End";
+}
+
+    <div class="">
+        <section class="text-center border-dark border">
+            <div>Started</div>
+
+            <div>@ViewBag.StartTime</div>
+
+            <div>Ended</div>
+
+            <div>@ViewBag.EndTime</div>
+
+            
+
+            <div>Current Total: @ViewBag.Current minutes</div>
+
+            <div>Total: @ViewBag.Total minutes</div>
+
+        </section>
+
+        
+
+            <div class="m-3 text-center">
+                <a class="btn-lg btn-primary" asp-controller="Home" asp-action="Start">Start</a>
+
+                <a class="btn-lg btn-danger" asp-controller="Home" asp-action="End">End</a>
+            </div>
+    </div>
+    
+
