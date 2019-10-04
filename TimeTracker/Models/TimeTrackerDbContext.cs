@@ -13,7 +13,7 @@ namespace TimeTracker.Models
     {
         public TimeTrackerDbContext(DbContextOptions<TimeTrackerDbContext> options) : base(options) { }
       
-        public DbSet<Profile> Profile { get; set; }
+       
         public DbSet<Time> Time { get; set; }
         public DbSet<CostCenter> CostCenter { get; set; }
 
