@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TimeTracker.Models
+namespace TimeTracker.Infrastructure
 {
     public class TimeTracking
     {
