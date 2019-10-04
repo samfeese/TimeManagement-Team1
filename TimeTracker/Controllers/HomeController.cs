@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TimeTracker.Models;
@@ -14,8 +10,9 @@ namespace TimeTracker.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        bool started = false;
+        TimeTracking timeTracker = new TimeTracking();
 
+<<<<<<< HEAD
         bool ended = false;
 
         static Stopwatch stopwatch = new Stopwatch();
@@ -27,6 +24,8 @@ namespace TimeTracker.Controllers
         double currentTotal;
 
         double total;
+=======
+>>>>>>> Staging
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -40,16 +39,25 @@ namespace TimeTracker.Controllers
 
         public IActionResult Start()
         {
+<<<<<<< HEAD
             stopwatch.Start();
             ViewBag.Start = true;
             started = true;
             ViewBag.End = false;
             ended = false;
+=======
+            timeTracker.Start();
+            var (startTime, isStart, isEnd) = timeTracker.Start();
+            ViewBag.Start = isStart;
+            ViewBag.End = isEnd;
+            ViewBag.StartTime = startTime;
+>>>>>>> Staging
             return View("Index");
         }
 
         public IActionResult End()
         {
+<<<<<<< HEAD
             if (started || ended == false && started == false)
             {
                 stopwatch.Stop();
@@ -70,15 +78,37 @@ namespace TimeTracker.Controllers
                 {
                     currentTotal = Convert.ToInt32(stopwatchList[2]);
                 }
+=======
+
+            //var user = User.Identity.Name;
+            //var permission = User.IsInRole("admin");
+
+            try
+            {
+                var (startTime, endTime, started, ended,
+                currentTotal, total) = timeTracker.End();
+                ViewBag.StartTime = startTime;
+                ViewBag.EndTime = endTime;
+>>>>>>> Staging
                 ViewBag.Current = currentTotal;
-                this.total += currentTotal;
                 ViewBag.Total = total;
+                ViewBag.Start = started;
+                ViewBag.End = ended;
             }
+<<<<<<< HEAD
             ViewBag.Start = false;
             started = false;
             ViewBag.End = true;
             ended = true;
             return View("Index");
+=======
+            catch (Exception)
+            {
+            }
+
+            return View("Index");
+
+>>>>>>> Staging
         }
 
         public IActionResult Privacy()
