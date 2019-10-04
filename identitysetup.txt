@@ -1,0 +1,13 @@
+Identity Documentation: https://docs.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-3.0&tabs=visual-studio
+
+
+
+Migration setup for multiple DbContexts
+
+Add-Migration -Context TimeTrackerDbContext Initial
+Add-Migration -Context TimeTrackerIdentityContext Initial
+
+Delete current database in SSMS
+
+Update-Database -Context TimeTrackerDbContext
+Update-Database -Context TimeTrackerIdentityContext
