@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using TimeTracker.Infrastructure;
 using TimeTracker.Models;
 
 namespace TimeTracker.Controllers
@@ -12,10 +13,12 @@ namespace TimeTracker.Controllers
 
         TimeTracking timeTracker = new TimeTracking();
 
+        TimeTrackerDbContext Context { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, TimeTrackerDbContext context)
         {
             _logger = logger;
+            Context = context;
         }
 
         public IActionResult Index()
