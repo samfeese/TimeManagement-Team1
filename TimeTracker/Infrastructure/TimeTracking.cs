@@ -31,7 +31,7 @@ namespace TimeTracker.Infrastructure
         {
             stopwatch.Start();
             startTime = DateTime.Now;
-            var time = new Time { Start = startTime };
+            var time = new Time { Start = startTime, IdentityUserId = userId};
             context.Time.Add(time);
             context.SaveChanges();
             started = true;

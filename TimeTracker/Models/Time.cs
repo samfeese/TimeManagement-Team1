@@ -10,9 +10,7 @@ namespace TimeTracker.Models
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
         public int TotalTime { get; set; }
-
-        
         public int CostCenterId { get; set; }
-        public int IdentityUserId { get; set; }
+        public string IdentityUserId { get; set; }
     }
 }

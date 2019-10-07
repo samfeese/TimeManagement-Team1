@@ -26,6 +26,7 @@ namespace TimeTracker.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Start()
         {
             var user = User.Identity.Name;
@@ -35,6 +36,18 @@ namespace TimeTracker.Controllers
             ViewBag.StartTime = startTime;
             return View("Index");
         }
+
+        [HttpPost]
+        public IActionResult Start()
+        {
+            var user = User.Identity.Name;
+            var (startTime, isStart, isEnd) = timeTracker.Start(Context, user);
+            ViewBag.Start = isStart;
+            ViewBag.End = isEnd;
+            ViewBag.StartTime = startTime;
+            return View("Index");
+        }
+
 
         public IActionResult End()
         {
