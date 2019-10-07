@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using TimeTracker.Models;
 
 namespace TimeTracker.Infrastructure
 {
@@ -26,16 +27,19 @@ namespace TimeTracker.Infrastructure
 
         double total;
 
-        public (DateTime, bool, bool) Start()
+        public (DateTime, bool, bool) Start(TimeTrackerDbContext context, string userId)
         {
             stopwatch.Start();
             startTime = DateTime.Now;
+            var time = new Time { Start = startTime };
+            context.Time.Add(time);
+            context.SaveChanges();
             started = true;
             ended = false;
             return (startTime, started, ended);
         }
 
-        public (DateTime, DateTime, bool, bool, double, double) End()
+        public (DateTime, DateTime, bool, bool, double, double) End(TimeTrackerDbContext context, string userId)
         {
 
             if (started || ended == false && started == false)

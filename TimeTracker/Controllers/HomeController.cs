@@ -26,11 +26,10 @@ namespace TimeTracker.Controllers
             return View();
         }
 
-
         public IActionResult Start()
         {
-            timeTracker.Start();
-            var (startTime, isStart, isEnd) = timeTracker.Start();
+            var user = User.Identity.Name;
+            var (startTime, isStart, isEnd) = timeTracker.Start(Context, user);
             ViewBag.Start = isStart;
             ViewBag.End = isEnd;
             ViewBag.StartTime = startTime;
@@ -39,14 +38,14 @@ namespace TimeTracker.Controllers
 
         public IActionResult End()
         {
+            var user = User.Identity.Name;
 
-            //var user = User.Identity.Name;
             //var permission = User.IsInRole("admin");
 
             try
             {
                 var (startTime, endTime, started, ended,
-                currentTotal, total) = timeTracker.End();
+                currentTotal, total) = timeTracker.End(Context, user);
                 ViewBag.StartTime = startTime;
                 ViewBag.EndTime = endTime;
                 ViewBag.Current = currentTotal;
